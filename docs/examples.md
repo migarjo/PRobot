@@ -107,3 +107,17 @@ on('issues.opened', 'pull_request.opened', 'issues.labeled', 'pull_request.label
   .filter.labeled('security')
   .assign(team('security-first-responders').random());
 ```
+
+### Add Projects, Columns, and Cards
+
+```js
+on('issues.reopened')
+  .createRepoProject({"name": "@{{sender.login}}\'s Onboarding", "body": "Onboarding for @{{sender.login}}"});
+
+on('issue_comment.created')
+    .createProjectColumns({"projectName":"@{{sender.login}}\'s Onboarding", "columnNames": ["TODO", "In Progress", "Onboarding Improvements", "Completed"]})
+
+
+on('issues.closed')
+  .createProjectCards({"projectName":"@{{sender.login}}\'s Onboarding", "columnName": "TODO", "cardNotes": ["Task A", "Task B", "Task C"]});
+```
