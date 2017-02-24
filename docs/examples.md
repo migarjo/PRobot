@@ -107,3 +107,34 @@ on('issues.opened', 'pull_request.opened', 'issues.labeled', 'pull_request.label
   .filter.labeled('security')
   .assign(team('security-first-responders').random());
 ```
+
+### Add Projects, columns, and cards
+
+```js
+on('issues.reopened')
+  .createRepoProject({"name": "Project Name", "body": "Project description"});
+
+on('issue_comment.created')
+    .createProjectColumns({"projectName":"@{{sender.login}}\'s Onboarding", "columnNames": ["TODO", "In Progress", "Completed"]})
+
+on('issues.closed')
+  .createProjectCards({"projectName":"@{{sender.login}}\'s Onboarding", "columnName": "TODO", "cardNotes": ["Task A", "Task B", "Task C"]});
+```
+
+### Add a full project, initialized with columns and cards
+
+```js
+on('issues.reopened')
+  .createRepoProject({
+   "name": "Project title",
+   "body": "Project description",
+   "columns": [
+     {
+        "name": "TODO",
+        "cardNames": ["Task A", "Task B", "Task C"]
+     },
+     {"name": "In Progress"},
+     {"name": "Completed"}
+    ]
+  });
+```

@@ -13,7 +13,7 @@
     "bunyan": "^1.8.5",
     "dotenv": "^2.0.0",
     "expect": "^1.20.2",
-    "github": "^6.0.4",
+    "github": "^7.1.0",
     "github-webhook-handler": "^0.6.0",
     "handlebars": "^4.0.5",
     "jsonwebtoken": "^7.1.9"
