@@ -1,31 +1,17 @@
-# PRobot
+# Probot
 
-[![Join the chat at https://gitter.im/bkeepers/PRobot](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bkeepers/PRobot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![npm version](https://img.shields.io/npm/v/probot.svg)](https://www.npmjs.com/package/probot) [![Build Status](https://travis-ci.org/probot/probot.svg?branch=master)](https://travis-ci.org/probot/probot) [![Greenkeeper badge](https://badges.greenkeeper.io/probot/probot.svg)](https://greenkeeper.io/) [![The Changelog #264](https://img.shields.io/badge/The%20Changelog-%23264-61c192.svg)](https://changelog.com/podcast/264)
 
-_**Heads up!** "PRobot" is a codename that is almost guaranteed to change._
+If you've ever thought, "wouldn't it be cool if GitHub could…"; imma stop you right there. Most features can actually be added via [GitHub Apps](https://developer.github.com/apps/), which extend GitHub and can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. Apps are first class actors within GitHub.
 
-PRobot is a trainable robot that responds to activity on GitHub. It's like [Hubot](https://hubot.github.com/), but for GitHub events instead of chat messages.
+**Probot is a framework for building [GitHub Apps](http://developer.github.com/apps) in [Node.js](https://nodejs.org/)**. Check out some of the [featured apps](https://probot.github.io/apps) or [read the docs](https://probot.github.io/docs/) to learn more about writing a new app.
 
-## Installing
+## Contributing
 
-_**Heads up!** The [demo integration](https://github.com/integration/probot-demo) is for demo purposes only. It is very likely to go away at some point, so please don't use it for production purposes._
+Probot is built by people just like you! Most of the interesting things are built _with_ Probot, so consider starting by [writing a new app](https://probot.github.io/docs/) or improving one of the [existing ones](https://github.com/search?q=topic%3Aprobot-app&type=Repositories), and check out our [contributing docs](CONTRIBUTING.md) for other ways to get started.
 
-0. Go to the **[demo integration](https://github.com/integration/probot-demo)**, click **Install**, and then select an organization.
-0. Create a `.probot.js` file in your repository with the following contents. See [Configuration](docs/configuration.md) for more information on what behaviors can be built.
+Want to chat with Probot users and contributors? [Join us in Slack](https://probot-slackin.herokuapp.com/)!
 
-        on("issues.opened").comment(`
-          Hello @{{ sender.login }}. Thanks for inviting me to your project.
-          Read more about [all the things I can help you with][config]. I can't
-          wait to get started!
+## Ideas
 
-          [config]: https://github.com/bkeepers/PRobot/blob/master/docs/configuration.md
-        `);
-
-0. Open a new issue. @probot should post a comment (you may need to refresh to see it).
-
-### Deploy your own bot to Heroku
-
-0. [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) - Click this button and pick an **App Name** that Heroku is happy with, like `your-name-probot`. Before you can complete this, you'll need config variables from the next step.
-0. In another tab, [create an integration](https://developer.github.com/early-access/integrations/creating-an-integration/) on GitHub, using `https://your-app-name.herokuapp.com/` as the **Homepage URL**, **Callback URL**, and **Webhook URL**. The permissions and events that your bot needs access to will depend on what you use it for.
-0. After creating your GitHub integration, go back to the Heroku tab and fill in the configuration variables with the values for the GitHub Integration
-0. Create a `.probot.yml` file in your repository. See [Configuring](#configuring).
+Have an idea for a cool new GitHub App (built with Probot)? That's great! If you want feedback, help, or just to share it with the world you can do so by [creating an issue in the `probot/ideas` repository](https://github.com/probot/ideas/issues/new)!

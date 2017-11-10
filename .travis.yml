@@ -1,8 +1,13 @@
 sudo: false
 language: node_js
 node_js:
-  - "6"
+  - "8"
 notifications:
   disabled: true
-env:
-  - PRIVATE_KEY=ssssshhh
+before_install:
+- npm install -g npm@5
+after_success:
+  - npm run semantic-release
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
